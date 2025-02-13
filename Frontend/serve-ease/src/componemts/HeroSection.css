@@ -1,0 +1,23 @@
+.hero-container {
+    /* background: url('/home/sunbeam/Project/fantastic-waffle/FrontEnd/client/public/images/background.jpg') center center/cover no-repeat; */
+    background: url('/public/images/background.jpg') center center/cover no-repeat;
+
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: 50%; */
+    align-items: center;
+    padding-top: 30vh;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+  }
+  .hero-container  h1
+  {
+    text-shadow: 0 0 10px white;
+    /* color: red; */
+    /* text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, */
+               /* 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff; */
+    color: black;
+  }
+  
