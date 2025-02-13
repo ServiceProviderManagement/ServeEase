@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ServeEase")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5aae4b8ebba907a52420014af0451534711246a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e93f0d2e283d7e061e2d21797fe3881ee38ccc3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ServeEase")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ServeEase")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

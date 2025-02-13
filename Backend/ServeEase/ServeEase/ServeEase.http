@@ -1,6 +1,0 @@
-@ServeEase_HostAddress = http://localhost:5207
-
-GET {{ServeEase_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
