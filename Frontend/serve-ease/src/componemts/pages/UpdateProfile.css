@@ -1,0 +1,50 @@
+.SignIn5
+{
+ display: flex;
+ height: 85vh;
+ align-items: center;
+ justify-content: center;
+ /* font-size: 3rem; */
+ 
+}
+
+.SignIn5 {
+    /*background-image: url('E:\Mission_2023\dacProjectFinal\FW\FrontEnd\client\public\images\hupdateback.jpg');*/
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+      color: black; 
+     /*font-size: 30px;  */
+     align-content: center;
+    align-items: center; 
+    
+   } 
+
+.container5{
+
+    width: 800px;
+    align-content: center;
+    border: 2px solid rgba(15, 15, 15, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(20px); /* Fixed the typo and added missing '0's */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Fixed the typo and added missing '0's */
+   
+
+}   
+
+.p-4
+{
+    align-items: center;
+    width: 800px;
+}
+.card-body
+{
+  align-content: center;
+  width: 400px;
+}
+
+.card
+{
+   color: transparent;
+   display: table-cell;
+} 
