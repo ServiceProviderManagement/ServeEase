@@ -273,8 +273,6 @@ namespace ServeEaseV3.Controllers
        
 
         // DELETE: api/ServiceProvider/5
-        public void Delete(int id)
-        {
-        }
+       Implemented delete functionality for service provider in ServiceProviderController.
     }
 }
