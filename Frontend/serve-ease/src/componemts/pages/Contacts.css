@@ -1,0 +1,114 @@
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contact Form Container */
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Heading */
+.contact-form h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333333;
+  font-weight: bold;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Labels */
+.form-group label {
+  display: block;
+  font-size: 0.9em;
+  color: #555555;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Input and Textarea Styles */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  font-size: 1em;
+  color: #333333;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
+  outline: none;
+  background-color: #ffffff;
+}
+
+/* Textarea Specific Styles */
+.form-group textarea {
+  resize: none;
+}
+
+/* Button Styles */
+.form-group button {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-group button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.form-group button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-form h2 {
+    font-size: 1.8em;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.95em;
+  }
+
+  .form-group button {
+    font-size: 0.95em;
+  }
+}

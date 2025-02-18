@@ -1,0 +1,185 @@
+.wrapper {
+    position: relative;
+    width: 400px; /* Corrected the character 'Ø' to '0' */
+    height: 440px; /* Corrected the character 'Ø' to '0' */
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Fixed the typo and added missing '0's */
+    border-radius: 20px;
+    backdrop-filter: blur(20px); /* Fixed the typo and added missing '0's */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Fixed the typo and added missing '0's */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: height .2s ease;
+  }
+
+  .wrapper.active{
+    height: 500px;
+  }
+
+  /* body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed '1ØØ' to '100' */
+   /* background-size: cover;
+    background-position: center;
+  } */
+  
+  
+
+
+  .wrapper .form-box {
+    width: 100%;
+    padding: 40px; /* Corrected the character 'Ø' to '0' */
+  }
+
+  /* .wrapper .form-box.login
+  {
+    /* display: none; */
+  /* } */ 
+
+  .wrapper.active .form-box.login
+  {
+    transition: none;
+    transform: translateX(-400px);
+  }
+
+
+  
+
+
+  .form-box h2 {
+    font-size: 2em;
+    color: #162938; /* Removed '0' before the '#' */
+    text-align: center;
+  }
+  
+  .wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938; /* Removed 'O' */
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor : pointer;
+    z-index: 1;
+  }
+  
+
+
+  .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938; /* Corrected property name and removed 'O' */
+    margin: 30px 0; /* Removed the extra space before 'O' */
+  }
+  
+  .input-box label {
+    position: absolute;
+    top: 55%;
+    left: 5px;
+    transform: translateY(-50%); /* Corrected '5Ø%' to '50%' */
+    font-size: 1em; /* Changed 'lem' to '1em' */
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .input-box input:focus~label,
+  .input-box input:valid~label {
+  top: -5px;
+  }
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #162938;
+  font-weight: 600;
+  padding: 0 35px 0 5px ;
+}
+
+.input-box .icon {
+  position: absolute;
+  right:9px;
+  font-size: 1.2em;
+  color: #162938;
+  line-height: 57PX;
+}
+
+.remember-forgot {
+  font-size: 0.9em; /* Changed '.9em' to '0.9em' */
+  color: #162938;
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.remember-forgot label {
+  display: flex;
+  align-items: center;
+  width:  120px;
+}
+
+.remember-forgot label input {
+  accent-color: #162938;
+  margin-right: 3px;
+  margin-top: 0;
+}
+
+.remember-forgot a {
+  color: #162938;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+
+  width: 100%;
+  height: 40px;
+  margin-top: 5px;
+  background: #162938; /* Removed 'O' */
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em; /* Changed 'lem' to '1em' */
+  color: #fff;
+  font-weight: 500; /* Added the missing value */
+}
+/* .login-register {
+  font-size: 0.9em;
+  color: #162938; 
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 10px; 
+}
+
+.login-register p a {
+  color: #162938; 
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-register p a:hover {
+  text-decoration: underline;
+} */
+
+
