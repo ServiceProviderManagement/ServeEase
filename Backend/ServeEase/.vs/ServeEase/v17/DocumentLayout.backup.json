@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\myfrontend\\ServeEase\\Backend\\ServeEase\\",
+  "WorkspaceRootPath": "F:\\ServeEase\\Backend\\ServeEase\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{047551A2-CD5B-407B-9173-DC30F97F4332}|ServeEase\\ServeEase.csproj|d:\\myfrontend\\serveease\\backend\\serveease\\serveease\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{047551A2-CD5B-407B-9173-DC30F97F4332}|ServeEase\\ServeEase.csproj|f:\\serveease\\backend\\serveease\\serveease\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{047551A2-CD5B-407B-9173-DC30F97F4332}|ServeEase\\ServeEase.csproj|solutionrelative:serveease\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{047551A2-CD5B-407B-9173-DC30F97F4332}|ServeEase\\ServeEase.csproj|D:\\myfrontend\\ServeEase\\Backend\\ServeEase\\serveease\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{047551A2-CD5B-407B-9173-DC30F97F4332}|ServeEase\\ServeEase.csproj|f:\\serveease\\backend\\serveease\\serveease\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{047551A2-CD5B-407B-9173-DC30F97F4332}|ServeEase\\ServeEase.csproj|solutionrelative:serveease\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,19 +18,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ValuesController.cs",
-              "DocumentMoniker": "D:\\myfrontend\\ServeEase\\Backend\\ServeEase\\ServeEase\\Controllers\\ValuesController.cs",
+              "DocumentMoniker": "F:\\ServeEase\\Backend\\ServeEase\\ServeEase\\Controllers\\ValuesController.cs",
               "RelativeDocumentMoniker": "ServeEase\\Controllers\\ValuesController.cs",
-              "ToolTip": "D:\\myfrontend\\ServeEase\\Backend\\ServeEase\\ServeEase\\Controllers\\ValuesController.cs",
+              "ToolTip": "F:\\ServeEase\\Backend\\ServeEase\\ServeEase\\Controllers\\ValuesController.cs",
               "RelativeToolTip": "ServeEase\\Controllers\\ValuesController.cs",
               "ViewState": "AgIAAAIAAADAMjMzMzMbwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -41,13 +37,14 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\myfrontend\\ServeEase\\Backend\\ServeEase\\ServeEase\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "F:\\ServeEase\\Backend\\ServeEase\\ServeEase\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ServeEase\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\myfrontend\\ServeEase\\Backend\\ServeEase\\ServeEase\\Controllers\\HomeController.cs",
+              "ToolTip": "F:\\ServeEase\\Backend\\ServeEase\\ServeEase\\Controllers\\HomeController.cs",
               "RelativeToolTip": "ServeEase\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T16:48:03.607Z"
+              "WhenOpened": "2025-02-18T16:48:03.607Z",
+              "EditorCaption": ""
             }
           ]
         }

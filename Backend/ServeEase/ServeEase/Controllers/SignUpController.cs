@@ -245,4 +245,85 @@ namespace ServeEaseV3.Controllers
             {
                 return InternalServerError(ex);
             }
+
+
+		[Route("api/login")]
+        [HttpPost]
+        public IHttpActionResult login([FromBody] user usr)
+        {
+            if (usr == null) 
+            {
+                //return BadRequest("user Update Failed!!!");
+            }
+            //TODO put in try catch
+            var userId = db.users
+                    .Where(user => user.email == usr.email)
+                    .Select(user => user.user_id)
+                    .FirstOrDefault();
+            user usr1 = new user();
+            try
+            {
+                var loggedInUser = db.users.SingleOrDefault(user => user.email == usr.email && user.password == usr.password);
+
+                if (loggedInUser != null)
+                {
+                    if (loggedInUser.role_id == "customer")
+                    {
+                        var customer = db.users.FirstOrDefault(user => user.email == usr.email);
+                        return Ok(customer);
+                    }
+                    else if (loggedInUser.role_id == "sp")
+                    {
+                        /*int spid = db.service_providers
+                            .Where(serviceProvider => serviceProvider.user_id == userId)
+                            .Select(serviceProvider => serviceProvider.sp_id)
+                            .FirstOrDefault();
+
+                        List<appointment> appointments = db.appointments
+                            .Where(appointment => appointment.sp_id == spid)
+                            .ToList();*/
+
+                        var sp = db.users.FirstOrDefault(user => user.email == usr.email);
+                        return Ok(sp);
+                        //return Ok(appointments);//Ok("User Logged In successfully and redirecting to Service Providers page");
+                    }
+                    else
+                    {
+                        /*List<user> customerAndSpUsers = db.users
+                            .Where(user => user.role_id == "customer" || user.role_id == "sp")
+                            .ToList();*/
+
+                        var admin = db.users.FirstOrDefault(user => user.email == usr.email);
+                        return Ok(admin);
+                        //return Ok(customerAndSpUsers);//Ok("User Logged In successfully and redirecting to Admin page");
+                    }
+                }
+                else
+                {
+                    return BadRequest("Failed");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Failed");
+            }
+
+        }
+        // DELETE: api/SignUp/5
+        public IHttpActionResult Delete(int id)
+        {
+            user usr = db.users.Find(id);
+            if (usr != null)
+            {
+                db.users.Remove(usr);
+                db.SaveChanges();
+                return Ok("User Deleted Successfully");
+            }
+            else
+            {
+                return BadRequest("Deletion Failed");
+            };
+        }
+    }
+}
         }
