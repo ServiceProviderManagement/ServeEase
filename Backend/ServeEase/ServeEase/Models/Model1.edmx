@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ServeEaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="addresses">
+          <Key>
+            <PropertyRef Name="address_id" />
+          </Key>
+          <Property Name="address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="district" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="pin_code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="dummy_column1" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column2" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column3" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column4" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column5" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="appointments">
+          <Key>
+            <PropertyRef Name="apt_id" />
+          </Key>
+          <Property Name="apt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cust_id" Type="int" Nullable="false" />
+          <Property Name="sp_id" Type="int" Nullable="false" />
+          <Property Name="ord_description" Type="varchar" MaxLength="200" />
+          <Property Name="order_date" Type="datetime" Nullable="false" />
+          <Property Name="apt_date" Type="datetime" Nullable="false" />
+          <Property Name="apt_status" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customers">
+          <Key>
+            <PropertyRef Name="cust_id" />
+          </Key>
+          <Property Name="cust_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="payment_details">
+          <Key>
+            <PropertyRef Name="pd_id" />
+          </Key>
+          <Property Name="pd_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="bank_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="branch_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ifsc_code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="acc_no" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="card_number" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="card_expiry" Type="datetime" Nullable="false" />
+          <Property Name="card_cvv" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="dummy_column1" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column2" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column3" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column4" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column5" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="reviews">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cust_id" Type="int" Nullable="false" />
+          <Property Name="sp_id" Type="int" Nullable="false" />
+          <Property Name="apt_id" Type="int" Nullable="false" />
+          <Property Name="review1" Type="varchar" MaxLength="200" />
+          <Property Name="complaint" Type="varchar" MaxLength="200" />
+          <Property Name="ratings" Type="int" />
+        </EntityType>
+        <EntityType Name="service_providers">
+          <Key>
+            <PropertyRef Name="sp_id" />
+          </Key>
+          <Property Name="sp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="profession" Type="varchar" MaxLength="50" />
+          <Property Name="experience" Type="int" />
+          <Property Name="expertise" Type="varchar" MaxLength="100" />
+          <Property Name="description" Type="varchar" MaxLength="200" />
+          <Property Name="charges" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="profile_pic" Type="varchar" MaxLength="100" />
+          <Property Name="other_images" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="transactions">
+          <Key>
+            <PropertyRef Name="transaction_id" />
+          </Key>
+          <Property Name="transaction_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="payment_id" Type="int" />
+          <Property Name="apt_id" Type="int" />
+          <Property Name="tx_date" Type="datetime" Nullable="false" />
+          <Property Name="payment_token_id" Type="int" />
+          <Property Name="amount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="tx_status" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="dob" Type="datetime" Nullable="false" />
+          <Property Name="role_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="reg_date" Type="datetime" Nullable="false" />
+          <Property Name="dummy_column1" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column2" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column3" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column4" Type="varchar" MaxLength="50" />
+          <Property Name="dummy_column5" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__addresses__dummy__2F10007B">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="addresses" Type="Self.addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="addresses">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__appointme__cust___35BCFE0A">
+          <End Role="customers" Type="Self.customers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="cust_id" />
+            </Principal>
+            <Dependent Role="appointments">
+              <PropertyRef Name="cust_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__appointme__sp_id__36B12243">
+          <End Role="service_providers" Type="Self.service_providers" Multiplicity="1" />
+          <End Role="appointments" Type="Self.appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service_providers">
+              <PropertyRef Name="sp_id" />
+            </Principal>
+            <Dependent Role="appointments">
+              <PropertyRef Name="sp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__customers__user___2C3393D0">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="customers" Type="Self.customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="customers">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__payment_d__dummy__398D8EEE">
+          <End Role="users" Type="Self.users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="payment_details" Type="Self.payment_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="payment_details">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reviews__apt_id__4222D4EF">
+          <End Role="appointments" Type="Self.appointments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reviews" Type="Self.reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="appointments">
+              <PropertyRef Name="apt_id" />
+            </Principal>
+            <Dependent Role="reviews">
+              <PropertyRef Name="apt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reviews__cust_id__403A8C7D">
+          <End Role="customers" Type="Self.customers" Multiplicity="1" />
+          <End Role="reviews" Type="Self.reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="cust_id" />
+            </Principal>
+            <Dependent Role="reviews">
+              <PropertyRef Name="cust_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reviews__sp_id__412EB0B6">
+          <End Role="service_providers" Type="Self.service_providers" Multiplicity="1" />
+          <End Role="reviews" Type="Self.reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service_providers">
+              <PropertyRef Name="sp_id" />
+            </Principal>
+            <Dependent Role="reviews">
+              <PropertyRef Name="sp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__service_p__user___29572725">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="service_providers" Type="Self.service_providers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="service_providers">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__transacti__apt_i__3D5E1FD2">
+          <End Role="appointments" Type="Self.appointments" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="appointments">
+              <PropertyRef Name="apt_id" />
+            </Principal>
+            <Dependent Role="transactions">
+              <PropertyRef Name="apt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__transacti__payme__3C69FB99">
+          <End Role="payment_details" Type="Self.payment_details" Multiplicity="0..1" />
+          <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="payment_details">
+              <PropertyRef Name="pd_id" />
+            </Principal>
+            <Dependent Role="transactions">
+              <PropertyRef Name="payment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServeEaseModelStoreContainer">
+          <EntitySet Name="addresses" EntityType="Self.addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="appointments" EntityType="Self.appointments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment_details" EntityType="Self.payment_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reviews" EntityType="Self.reviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="service_providers" EntityType="Self.service_providers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="transactions" EntityType="Self.transactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__addresses__dummy__2F10007B" Association="Self.FK__addresses__dummy__2F10007B">
+            <End Role="users" EntitySet="users" />
+            <End Role="addresses" EntitySet="addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__appointme__cust___35BCFE0A" Association="Self.FK__appointme__cust___35BCFE0A">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="appointments" EntitySet="appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__appointme__sp_id__36B12243" Association="Self.FK__appointme__sp_id__36B12243">
+            <End Role="service_providers" EntitySet="service_providers" />
+            <End Role="appointments" EntitySet="appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__customers__user___2C3393D0" Association="Self.FK__customers__user___2C3393D0">
+            <End Role="users" EntitySet="users" />
+            <End Role="customers" EntitySet="customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__payment_d__dummy__398D8EEE" Association="Self.FK__payment_d__dummy__398D8EEE">
+            <End Role="users" EntitySet="users" />
+            <End Role="payment_details" EntitySet="payment_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reviews__apt_id__4222D4EF" Association="Self.FK__reviews__apt_id__4222D4EF">
+            <End Role="appointments" EntitySet="appointments" />
+            <End Role="reviews" EntitySet="reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reviews__cust_id__403A8C7D" Association="Self.FK__reviews__cust_id__403A8C7D">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="reviews" EntitySet="reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reviews__sp_id__412EB0B6" Association="Self.FK__reviews__sp_id__412EB0B6">
+            <End Role="service_providers" EntitySet="service_providers" />
+            <End Role="reviews" EntitySet="reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__service_p__user___29572725" Association="Self.FK__service_p__user___29572725">
+            <End Role="users" EntitySet="users" />
+            <End Role="service_providers" EntitySet="service_providers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__transacti__apt_i__3D5E1FD2" Association="Self.FK__transacti__apt_i__3D5E1FD2">
+            <End Role="appointments" EntitySet="appointments" />
+            <End Role="transactions" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__transacti__payme__3C69FB99" Association="Self.FK__transacti__payme__3C69FB99">
+            <End Role="payment_details" EntitySet="payment_details" />
+            <End Role="transactions" EntitySet="transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ServeEaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="address">
+          <Key>
+            <PropertyRef Name="address_id" />
+          </Key>
+          <Property Name="address_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pin_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dummy_column1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK__addresses__dummy__2F10007B" FromRole="addresses" ToRole="users" />
+        </EntityType>
+        <EntityType Name="appointment">
+          <Key>
+            <PropertyRef Name="apt_id" />
+          </Key>
+          <Property Name="apt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cust_id" Type="Int32" Nullable="false" />
+          <Property Name="sp_id" Type="Int32" Nullable="false" />
+          <Property Name="ord_description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="order_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="apt_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="apt_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="customer" Relationship="Self.FK__appointme__cust___35BCFE0A" FromRole="appointments" ToRole="customers" />
+          <NavigationProperty Name="service_providers" Relationship="Self.FK__appointme__sp_id__36B12243" FromRole="appointments" ToRole="service_providers" />
+          <NavigationProperty Name="reviews" Relationship="Self.FK__reviews__apt_id__4222D4EF" FromRole="appointments" ToRole="reviews" />
+          <NavigationProperty Name="transactions" Relationship="Self.FK__transacti__apt_i__3D5E1FD2" FromRole="appointments" ToRole="transactions" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="cust_id" />
+          </Key>
+          <Property Name="cust_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="appointments" Relationship="Self.FK__appointme__cust___35BCFE0A" FromRole="customers" ToRole="appointments" />
+          <NavigationProperty Name="user" Relationship="Self.FK__customers__user___2C3393D0" FromRole="customers" ToRole="users" />
+          <NavigationProperty Name="reviews" Relationship="Self.FK__reviews__cust_id__403A8C7D" FromRole="customers" ToRole="reviews" />
+        </EntityType>
+        <EntityType Name="payment_details">
+          <Key>
+            <PropertyRef Name="pd_id" />
+          </Key>
+          <Property Name="pd_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="bank_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="branch_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ifsc_code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="acc_no" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="card_number" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="card_expiry" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="card_cvv" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dummy_column1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK__payment_d__dummy__398D8EEE" FromRole="payment_details" ToRole="users" />
+          <NavigationProperty Name="transactions" Relationship="Self.FK__transacti__payme__3C69FB99" FromRole="payment_details" ToRole="transactions" />
+        </EntityType>
+        <EntityType Name="review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cust_id" Type="Int32" Nullable="false" />
+          <Property Name="sp_id" Type="Int32" Nullable="false" />
+          <Property Name="apt_id" Type="Int32" Nullable="false" />
+          <Property Name="review1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="complaint" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ratings" Type="Int32" />
+          <NavigationProperty Name="appointment" Relationship="Self.FK__reviews__apt_id__4222D4EF" FromRole="reviews" ToRole="appointments" />
+          <NavigationProperty Name="customer" Relationship="Self.FK__reviews__cust_id__403A8C7D" FromRole="reviews" ToRole="customers" />
+          <NavigationProperty Name="service_providers" Relationship="Self.FK__reviews__sp_id__412EB0B6" FromRole="reviews" ToRole="service_providers" />
+        </EntityType>
+        <EntityType Name="service_providers">
+          <Key>
+            <PropertyRef Name="sp_id" />
+          </Key>
+          <Property Name="sp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="profession" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="experience" Type="Int32" />
+          <Property Name="expertise" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="charges" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="profile_pic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="other_images" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="appointments" Relationship="Self.FK__appointme__sp_id__36B12243" FromRole="service_providers" ToRole="appointments" />
+          <NavigationProperty Name="reviews" Relationship="Self.FK__reviews__sp_id__412EB0B6" FromRole="service_providers" ToRole="reviews" />
+          <NavigationProperty Name="user" Relationship="Self.FK__service_p__user___29572725" FromRole="service_providers" ToRole="users" />
+        </EntityType>
+        <EntityType Name="transaction">
+          <Key>
+            <PropertyRef Name="transaction_id" />
+          </Key>
+          <Property Name="transaction_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="payment_id" Type="Int32" />
+          <Property Name="apt_id" Type="Int32" />
+          <Property Name="tx_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="payment_token_id" Type="Int32" />
+          <Property Name="amount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="tx_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="appointment" Relationship="Self.FK__transacti__apt_i__3D5E1FD2" FromRole="transactions" ToRole="appointments" />
+          <NavigationProperty Name="payment_details" Relationship="Self.FK__transacti__payme__3C69FB99" FromRole="transactions" ToRole="payment_details" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dob" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="role_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reg_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dummy_column1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dummy_column5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="addresses" Relationship="Self.FK__addresses__dummy__2F10007B" FromRole="users" ToRole="addresses" />
+          <NavigationProperty Name="customers" Relationship="Self.FK__customers__user___2C3393D0" FromRole="users" ToRole="customers" />
+          <NavigationProperty Name="payment_details" Relationship="Self.FK__payment_d__dummy__398D8EEE" FromRole="users" ToRole="payment_details" />
+          <NavigationProperty Name="service_providers" Relationship="Self.FK__service_p__user___29572725" FromRole="users" ToRole="service_providers" />
+        </EntityType>
+        <Association Name="FK__addresses__dummy__2F10007B">
+          <End Role="users" Type="Self.user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="addresses" Type="Self.address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="addresses">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__appointme__cust___35BCFE0A">
+          <End Role="customers" Type="Self.customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="appointments" Type="Self.appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="cust_id" />
+            </Principal>
+            <Dependent Role="appointments">
+              <PropertyRef Name="cust_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__appointme__sp_id__36B12243">
+          <End Role="service_providers" Type="Self.service_providers" Multiplicity="1" />
+          <End Role="appointments" Type="Self.appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service_providers">
+              <PropertyRef Name="sp_id" />
+            </Principal>
+            <Dependent Role="appointments">
+              <PropertyRef Name="sp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reviews__apt_id__4222D4EF">
+          <End Role="appointments" Type="Self.appointment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="reviews" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="appointments">
+              <PropertyRef Name="apt_id" />
+            </Principal>
+            <Dependent Role="reviews">
+              <PropertyRef Name="apt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__transacti__apt_i__3D5E1FD2">
+          <End Role="appointments" Type="Self.appointment" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="transactions" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="appointments">
+              <PropertyRef Name="apt_id" />
+            </Principal>
+            <Dependent Role="transactions">
+              <PropertyRef Name="apt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__customers__user___2C3393D0">
+          <End Role="users" Type="Self.user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="customers" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="customers">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reviews__cust_id__403A8C7D">
+          <End Role="customers" Type="Self.customer" Multiplicity="1" />
+          <End Role="reviews" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="cust_id" />
+            </Principal>
+            <Dependent Role="reviews">
+              <PropertyRef Name="cust_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__payment_d__dummy__398D8EEE">
+          <End Role="users" Type="Self.user" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="payment_details" Type="Self.payment_details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="payment_details">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__transacti__payme__3C69FB99">
+          <End Role="payment_details" Type="Self.payment_details" Multiplicity="0..1" />
+          <End Role="transactions" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="payment_details">
+              <PropertyRef Name="pd_id" />
+            </Principal>
+            <Dependent Role="transactions">
+              <PropertyRef Name="payment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__reviews__sp_id__412EB0B6">
+          <End Role="service_providers" Type="Self.service_providers" Multiplicity="1" />
+          <End Role="reviews" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service_providers">
+              <PropertyRef Name="sp_id" />
+            </Principal>
+            <Dependent Role="reviews">
+              <PropertyRef Name="sp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__service_p__user___29572725">
+          <End Role="users" Type="Self.user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="service_providers" Type="Self.service_providers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="service_providers">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServeEaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="addresses" EntityType="Self.address" />
+          <EntitySet Name="appointments" EntityType="Self.appointment" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="payment_details" EntityType="Self.payment_details" />
+          <EntitySet Name="reviews" EntityType="Self.review" />
+          <EntitySet Name="service_providers" EntityType="Self.service_providers" />
+          <EntitySet Name="transactions" EntityType="Self.transaction" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <AssociationSet Name="FK__addresses__dummy__2F10007B" Association="Self.FK__addresses__dummy__2F10007B">
+            <End Role="users" EntitySet="users" />
+            <End Role="addresses" EntitySet="addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__appointme__cust___35BCFE0A" Association="Self.FK__appointme__cust___35BCFE0A">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="appointments" EntitySet="appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__appointme__sp_id__36B12243" Association="Self.FK__appointme__sp_id__36B12243">
+            <End Role="service_providers" EntitySet="service_providers" />
+            <End Role="appointments" EntitySet="appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reviews__apt_id__4222D4EF" Association="Self.FK__reviews__apt_id__4222D4EF">
+            <End Role="appointments" EntitySet="appointments" />
+            <End Role="reviews" EntitySet="reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__transacti__apt_i__3D5E1FD2" Association="Self.FK__transacti__apt_i__3D5E1FD2">
+            <End Role="appointments" EntitySet="appointments" />
+            <End Role="transactions" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__customers__user___2C3393D0" Association="Self.FK__customers__user___2C3393D0">
+            <End Role="users" EntitySet="users" />
+            <End Role="customers" EntitySet="customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reviews__cust_id__403A8C7D" Association="Self.FK__reviews__cust_id__403A8C7D">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="reviews" EntitySet="reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__payment_d__dummy__398D8EEE" Association="Self.FK__payment_d__dummy__398D8EEE">
+            <End Role="users" EntitySet="users" />
+            <End Role="payment_details" EntitySet="payment_details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__transacti__payme__3C69FB99" Association="Self.FK__transacti__payme__3C69FB99">
+            <End Role="payment_details" EntitySet="payment_details" />
+            <End Role="transactions" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__reviews__sp_id__412EB0B6" Association="Self.FK__reviews__sp_id__412EB0B6">
+            <End Role="service_providers" EntitySet="service_providers" />
+            <End Role="reviews" EntitySet="reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__service_p__user___29572725" Association="Self.FK__service_p__user___29572725">
+            <End Role="users" EntitySet="users" />
+            <End Role="service_providers" EntitySet="service_providers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ServeEaseModelStoreContainer" CdmEntityContainer="ServeEaseEntities">
+          <EntitySetMapping Name="addresses">
+            <EntityTypeMapping TypeName="ServeEaseModel.address">
+              <MappingFragment StoreEntitySet="addresses">
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="pin_code" ColumnName="pin_code" />
+                <ScalarProperty Name="dummy_column1" ColumnName="dummy_column1" />
+                <ScalarProperty Name="dummy_column2" ColumnName="dummy_column2" />
+                <ScalarProperty Name="dummy_column3" ColumnName="dummy_column3" />
+                <ScalarProperty Name="dummy_column4" ColumnName="dummy_column4" />
+                <ScalarProperty Name="dummy_column5" ColumnName="dummy_column5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="appointments">
+            <EntityTypeMapping TypeName="ServeEaseModel.appointment">
+              <MappingFragment StoreEntitySet="appointments">
+                <ScalarProperty Name="apt_id" ColumnName="apt_id" />
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+                <ScalarProperty Name="sp_id" ColumnName="sp_id" />
+                <ScalarProperty Name="ord_description" ColumnName="ord_description" />
+                <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="apt_date" ColumnName="apt_date" />
+                <ScalarProperty Name="apt_status" ColumnName="apt_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="ServeEaseModel.customer">
+              <MappingFragment StoreEntitySet="customers">
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payment_details">
+            <EntityTypeMapping TypeName="ServeEaseModel.payment_details">
+              <MappingFragment StoreEntitySet="payment_details">
+                <ScalarProperty Name="pd_id" ColumnName="pd_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="bank_name" ColumnName="bank_name" />
+                <ScalarProperty Name="branch_name" ColumnName="branch_name" />
+                <ScalarProperty Name="ifsc_code" ColumnName="ifsc_code" />
+                <ScalarProperty Name="acc_no" ColumnName="acc_no" />
+                <ScalarProperty Name="card_number" ColumnName="card_number" />
+                <ScalarProperty Name="card_expiry" ColumnName="card_expiry" />
+                <ScalarProperty Name="card_cvv" ColumnName="card_cvv" />
+                <ScalarProperty Name="dummy_column1" ColumnName="dummy_column1" />
+                <ScalarProperty Name="dummy_column2" ColumnName="dummy_column2" />
+                <ScalarProperty Name="dummy_column3" ColumnName="dummy_column3" />
+                <ScalarProperty Name="dummy_column4" ColumnName="dummy_column4" />
+                <ScalarProperty Name="dummy_column5" ColumnName="dummy_column5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reviews">
+            <EntityTypeMapping TypeName="ServeEaseModel.review">
+              <MappingFragment StoreEntitySet="reviews">
+                <ScalarProperty Name="review_id" ColumnName="review_id" />
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+                <ScalarProperty Name="sp_id" ColumnName="sp_id" />
+                <ScalarProperty Name="apt_id" ColumnName="apt_id" />
+                <ScalarProperty Name="review1" ColumnName="review1" />
+                <ScalarProperty Name="complaint" ColumnName="complaint" />
+                <ScalarProperty Name="ratings" ColumnName="ratings" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="service_providers">
+            <EntityTypeMapping TypeName="ServeEaseModel.service_providers">
+              <MappingFragment StoreEntitySet="service_providers">
+                <ScalarProperty Name="sp_id" ColumnName="sp_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="profession" ColumnName="profession" />
+                <ScalarProperty Name="experience" ColumnName="experience" />
+                <ScalarProperty Name="expertise" ColumnName="expertise" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="charges" ColumnName="charges" />
+                <ScalarProperty Name="profile_pic" ColumnName="profile_pic" />
+                <ScalarProperty Name="other_images" ColumnName="other_images" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transactions">
+            <EntityTypeMapping TypeName="ServeEaseModel.transaction">
+              <MappingFragment StoreEntitySet="transactions">
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="apt_id" ColumnName="apt_id" />
+                <ScalarProperty Name="tx_date" ColumnName="tx_date" />
+                <ScalarProperty Name="payment_token_id" ColumnName="payment_token_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="tx_status" ColumnName="tx_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="ServeEaseModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="reg_date" ColumnName="reg_date" />
+                <ScalarProperty Name="dummy_column1" ColumnName="dummy_column1" />
+                <ScalarProperty Name="dummy_column2" ColumnName="dummy_column2" />
+                <ScalarProperty Name="dummy_column3" ColumnName="dummy_column3" />
+                <ScalarProperty Name="dummy_column4" ColumnName="dummy_column4" />
+                <ScalarProperty Name="dummy_column5" ColumnName="dummy_column5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
